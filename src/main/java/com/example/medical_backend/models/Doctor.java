@@ -26,6 +26,8 @@ public class Doctor {
     private Gender gender;
     private Date birthDay;
     private String photo;
+    @Enumerated(EnumType.STRING)
+    private Profession profession;
     @Column(unique = true)
     private String email;
     @Size(min = 8)
@@ -39,4 +41,19 @@ public class Doctor {
     )
     private Hospital hospital;
 
+    public Doctor(String name, String surname, String patronymic, Gender gender, Date birthDay, String photo, String email, String password, Hospital hospital) {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.gender = gender;
+        this.birthDay = birthDay;
+        this.email = email;
+        this.password = password;
+        this.hospital = hospital;
+    }
+
+    public Doctor(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 }
