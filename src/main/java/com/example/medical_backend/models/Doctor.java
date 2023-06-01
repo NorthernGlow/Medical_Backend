@@ -34,22 +34,35 @@ public class Doctor {
     private String password;
 
     @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinTable(
-            name = "hospital_doctor",
-            joinColumns = @JoinColumn(name = "doctor_id"),
-            inverseJoinColumns = @JoinColumn(name = "hospital_id")
-    )
+//    @JoinTable(
+//            name = "hospital_doctor",
+//            joinColumns = @JoinColumn(name = "doctor_id"),
+//            inverseJoinColumns = @JoinColumn(name = "hospital_id")
+//    )
     private Hospital hospital;
 
-    public Doctor(String name, String surname, String patronymic, Gender gender, Date birthDay, String photo, String email, String password, Hospital hospital) {
+    public Doctor(String name, String surname, String patronymic, Gender gender, Date birthDay, Profession profession, String email, String password, Hospital hospital) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
         this.gender = gender;
         this.birthDay = birthDay;
+        this.profession= profession;
         this.email = email;
         this.password = password;
         this.hospital = hospital;
+    }
+
+    public Doctor(String name, String surname, String patronymic, Gender gender, Date birthDay, String photo, Profession profession, String email, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.gender = gender;
+        this.birthDay = birthDay;
+        this.photo = photo;
+        this.profession = profession;
+        this.email = email;
+        this.password = password;
     }
 
     public Doctor(String email, String password) {
