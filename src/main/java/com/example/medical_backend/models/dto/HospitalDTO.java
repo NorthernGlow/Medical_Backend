@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 public class HospitalDTO {
     private int id;
-    private String name;
+    private String hospitalName;
     private String region;
     private String district;
     private String city;
@@ -19,7 +19,7 @@ public class HospitalDTO {
 
     public HospitalDTO(Hospital hospital) {
         this.id = hospital.getId();
-        this.name = hospital.getHospitalName();
+        this.hospitalName = hospital.getHospitalName();
         this.region= hospital.getRegion();
         this.district= hospital.getDistrict();
         this.city= hospital.getCity();

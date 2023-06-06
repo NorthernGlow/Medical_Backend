@@ -19,7 +19,6 @@ public class Location {
     @ToString.Exclude
     private Patient patient;
 
-    private String name;
     private String region;
     private String district;
     private String city;

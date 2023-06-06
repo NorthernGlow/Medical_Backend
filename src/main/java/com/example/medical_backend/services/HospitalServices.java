@@ -14,7 +14,11 @@ import java.util.stream.Collectors;
 public class HospitalServices {
     private HospitalDAO hospitalDAO;
 
-    public List<HospitalDTO> getAllHospital(){
-        return hospitalDAO.findAll().stream().map(HospitalDTO::new).collect(Collectors.toList());
+    public List<Hospital> getAllHospital(){
+        return hospitalDAO.findAll();
+    }
+
+    public Hospital getHospitalById(int id){
+        return hospitalDAO.findById(id).get();
     }
 }
